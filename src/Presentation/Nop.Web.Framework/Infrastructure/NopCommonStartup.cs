@@ -41,6 +41,9 @@ namespace Nop.Web.Framework.Infrastructure
 
             //add theme support
             services.AddThemes();
+
+            //add Easy caching
+            services.AddEasyCaching();
         }
 
         /// <summary>
