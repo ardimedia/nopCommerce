@@ -16,3 +16,16 @@ To create a build, which can be deployed to a web server, the following needs to
   to build packages.
 
 - One package is created, **Nop.Web.zip**. This can be used to deploy to a IIS web server
+
+# DEVELOPMENT ENVIRONMENT
+
+## DIFFERENT RELEASE BRANCHES | SETUP A NEW DATABASE
+
+If you change branches (with different releases) make sure that you setup a new database
+by deleting the folloing folders, before building the solution:
+
+- Nop.Web\App_Data\dataSettings.json
+- Nop.Web\App_Data\plugins.json
+- Plugins\**
+
+When you start the application, you should now be asked for creating a new database.
