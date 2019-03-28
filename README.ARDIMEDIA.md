@@ -20,3 +20,16 @@ To create a build, which can be deployed to a web server, the following needs to
 
 - When using MS DEPLOY to deploy to the web server, make sure **Nop.ADMIN.zip** is deployed before **Nop.Web.zip**
   because otherwise **web.config** of ADMIN would override the **web.config** of WEB
+
+# DEVELOPMENT ENVIRONMENT
+
+## DIFFERENT RELEASE BRANCHES | SETUP A NEW DATABASE
+
+If you change branches (with different releases) make sure that you setup a new database
+by deleting the folloing folders, before building the solution:
+
+- Nop.Web\App_Data\dataSettings.json
+- Nop.Web\App_Data\plugins.json
+- Plugins\**
+
+When you start the application, you should now be asked for creating a new database.
