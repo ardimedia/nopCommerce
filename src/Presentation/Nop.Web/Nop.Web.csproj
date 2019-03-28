@@ -2257,7 +2257,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
 		 Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target> -->
@@ -2316,10 +2316,12 @@
     <!-- Now copy an empty file from \Content\Files to ensure that \Plugins\bin\ is also deployed-->
     <Copy SourceFiles="$(ProjectDir)Content\Files\Index.htm" DestinationFolder="$(ProjectDir)Plugins\bin\" ContinueOnError="true" />
   </Target>
+  <Target Name="BeforeBuild" DependsOnTargets="MvcBuildViews">
+    <CallTarget Targets="CreatePluginsBinDirectory" />
+  </Target>
   <Target Name="AfterBuild" DependsOnTargets="MvcBuildViews">
     <CallTarget Targets="ExcludeRootBinariesDeployment" />
     <CallTarget Targets="CopySqlCeBinaries" />
-    <CallTarget Targets="CreatePluginsBinDirectory" />
   </Target>
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
